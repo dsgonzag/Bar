@@ -3,14 +3,17 @@ $(document).ready(function() {
 var ruta="../"
 var imagenes=[]
 var tagImagenes=[]
-var verifadorLeche = true;
-var verifadorYogurt = true;
-var verifadorPlatano = true;
-var verifadorPan = true;
-var verifadorZanahoria = true;
-var verifadorTomate = true;
-var verifadorNranja = true;
-
+var verificadorLeche = true;
+var verificadorYogurt = true;
+var verificadorTostada = true;
+var verificadorCake = true;
+var verificadorSandia = true;
+    
+var verificadorManzana = true;
+    
+var verificadorGuineo = true;
+    
+var numConstructores=0, numEnergeticos=0, numReguladores=0;
 
 $.getJSON("json/frutas.json", function(data){
 console.log(data)
@@ -66,11 +69,11 @@ var audioElement = document.createElement('audio');
 var audiohamburguesa = document.createElement('audio');
 audiohamburguesa.setAttribute('src', 'audio/hamburguesa.mp3');        
 
-var audioPizza = document.createElement('audio');
-audioPizza.setAttribute('src', 'audio/pizza.mp3');    
-
+var audioHotdog = document.createElement('audio');
+audioHotdog.setAttribute('src', 'audio/hotdog.mp3');    
+    
 var audioCocacola = document.createElement('audio');
-audioCocacola.setAttribute('src', 'audio/cocacola.mp3'); 
+audioCocacola.setAttribute('src', 'audio/cola.mp3'); 
 
 var audioLeche = document.createElement('audio');
 audioLeche.setAttribute('src', 'audio/leche.mp3');
@@ -78,21 +81,20 @@ audioLeche.setAttribute('src', 'audio/leche.mp3');
 var audioYogurt = document.createElement('audio');
 audioYogurt.setAttribute('src', 'audio/yogurt.mp3');
 
-var audioPlatano = document.createElement('audio');
-audioPlatano.setAttribute('src', 'audio/platano.mp3');
+var audioTostada = document.createElement('audio');
+audioTostada.setAttribute('src', 'audio/tostada.mp3');
 
-var audioPanIntegral = document.createElement('audio');
-audioPanIntegral.setAttribute('src', 'audio/panIntegral.mp3');
+var audioCake = document.createElement('audio');
+audioCake.setAttribute('src', 'audio/cake.mp3');
 
-var audioZanahoria = document.createElement('audio');
-audioZanahoria.setAttribute('src', 'audio/zanahoria.mp3');
+var audioSandia = document.createElement('audio');
+audioSandia.setAttribute('src', 'audio/sandia.mp3');
 
-var audioTomate = document.createElement('audio');
-audioTomate.setAttribute('src', 'audio/tomate.mp3');
+var audioManzana = document.createElement('audio');
+audioManzana.setAttribute('src', 'audio/manzana.mp3');
 
-var audioNnaranja = document.createElement('audio');
-audioNnaranja.setAttribute('src', 'audio/naranja.mp3');
-
+var audioGuineo = document.createElement('audio');
+audioGuineo.setAttribute('src', 'audio/guineo.mp3');
 
 var bienHecho = document.createElement('audio');
 bienHecho.setAttribute('src', 'audio/bienhecho.mp3');
@@ -119,8 +121,8 @@ $(".alimentos").draggable({
             audiohamburguesa.play();
             return
           }
-          if(element.sonido == "sonidoPizza") {          
-            audioPizza.play();
+          if(element.sonido == "sonidoHotDog") {          
+            audioHotdog.play();
           }
           if(element.sonido== "sonidoCola") {
             audioCocacola.play();
@@ -129,11 +131,11 @@ $(".alimentos").draggable({
        
         if(element.sonido== "sonidoLeche") {
           $('#contructores').find( this).each(function() {     
-            if (verifadorLeche == false) {
+            if (verificadorLeche == false) {
               puntajeJuego -= element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera--
-              verifadorLeche = true;
+              verificadorLeche = true;
             }              
           });
           audioLeche.play();
@@ -152,66 +154,65 @@ $(".alimentos").draggable({
           audioYogurt.play();
           return
         }
-        if(element.sonido == "sonidoPlatano") {
+        if(element.sonido == "sonidoTostada") {
           $('#energeticos').find( this).each(function() {
         
-            if (verifadorPlatano == false) {
+            if (verificadorTostada == false) {
               puntajeJuego -= element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera--
-              verifadorPlatano = true;
+              verificadorTostada = true;
             }              
           });
-          audioPlatano.play();
+          audioTostada.play();
           return
         }
-        if(element.sonido == "sonidoPan") {
+        if(element.sonido == "sonidoCake") {
           $('#energeticos').find( this).each(function() {     
-            if (verifadorPan == false) {
+            if (verificadorCake == false) {
               puntajeJuego -= element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera--
-              verifadorPan = true;
+              verificadorCake = true;
             }              
           });
-          audioPanIntegral.play();
+          audioCake.play();
           return
         }
-        if(element.sonido == "sonidoZanahoria") {
+        if(element.sonido == "sonidoSandia") {
           $('#reguladores').find( this).each(function() {      
-            if (verifadorZanahoria == false) {
+            if (verificadorSandia == false) {
               puntajeJuego -= element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera--
-              verifadorZanahoria = true;        
+              verificadorSandia = true;        
             }              
           });
-          audioZanahoria.play();
+          audioSandia.play();
           return
         }
-        if(element.sonido == "sonidoTomate") {
+        if(element.sonido == "sonidoManzana") {
           $('#reguladores').find( this).each(function() {     
-            if (verifadorTomate == false) {
+            if (verificadorManzana == false) {
               puntajeJuego -= element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera--
-              verifadorTomate = true;            
+              verificadorManzana = true;            
             }              
           });
-          audioTomate.play();
+          audioManzana.play();
           return
         }
-        if(element.sonido == "sonidoNaranaja") {
+        if(element.sonido == "sonidoGuineo") {
           $('#reguladores').find( this).each(function() {      
-            if (verifadorNranja == false) {
+            if (verificadorGuineo == false) {
               puntajeJuego -= element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera--
-              verifadorNranja = true;  
-              console.log(contNranja + "dddddddd")
+              verificadorGuineo = true;  
             }              
           });
-          audioNnaranja.play();
+          audioGuineo.play();
           return
         }
       }
@@ -230,12 +231,12 @@ $(".lonchCont").droppable({
         console.log(puntajeJuego)
         ui.draggable.detach();   
         let contene=element.id;
-         // console.log($ (ui.draggable).attr("class"))
+         
          console.log("contadorLonchera")
           console.log(contadorLonchera)
-          console.log(contene + "ssss")
+			
           if(contadorLonchera<4){
-//            
+			  
 //          if ($ (ui.draggable).hasClass( "dañinos") ) {
 //            $("#dañinos").append(ui.draggable)          
 //           malo.play();
@@ -244,46 +245,78 @@ $(".lonchCont").droppable({
 if ($ (ui.draggable).hasClass("dañinos")) {
 $( ".cont1" ).append( ui.draggable  );
     alert("alimento dañino aqui resta");
-    /////NO ESTA RESTANDO DEBE RESTAR 
-              
+   
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++
+	if (contadorLonchera >= 4)
+                  {
+                    window.location.href = "Puntaje.html?" + puntajeJuego;
+                    hazArmado.play();
+                  }
+	
             return
     
 }
               
-              
           if ($ (ui.draggable).hasClass("contructores")) {
             $( ".cont1" ).append( ui.draggable  );
 
-            if (verifadorLeche == true && contene == 4) {
+            if (verificadorLeche == true && contene == 4) {
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++
-              verifadorLeche = false;
+              verificadorLeche = false;
+				if (contadorLonchera >= 4)
+                  {
+                    window.location.href = "Puntaje.html?" + puntajeJuego;
+                    hazArmado.play();
+                  }
+					
+				
             }
             if (verifadorYogurt == true && contene == 5) {
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++
               verifadorYogurt = false;
+				if (contadorLonchera >= 4)
+                  {
+                    window.location.href = "Puntaje.html?" + puntajeJuego;
+                    hazArmado.play();
+                  }
+					
+				
             }         
             return
           }
           if ($ (ui.draggable).hasClass("energeticos")) {
             $( ".cont2" ).append( ui.draggable );
-            if (verifadorPlatano == true && contene == 6) {
+            if (verificadorTostada == true && contene == 6) {
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++
-              verifadorPlatano = false;
+              verificadorTostada = false;
+				if (contadorLonchera >= 4)
+                  {
+                    window.location.href = "Puntaje.html?" + puntajeJuego;
+                    hazArmado.play();
+                  }
+						
+				
             }
-            if (verifadorPan == true && contene == 7) {
+            if (verificadorCake == true && contene == 7) {
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++
-              verifadorPan = false;
+              verificadorCake = false;
+				
+				if (contadorLonchera >= 4)
+                  {
+                    window.location.href = "Puntaje.html?" + puntajeJuego;
+                    hazArmado.play();
+                  }		
+				
             }
             return
           }
@@ -291,29 +324,52 @@ $( ".cont1" ).append( ui.draggable  );
           if ($ (ui.draggable).hasClass("reguladores")) {
             $( ".cont3" ).append( ui.draggable /*, audioElement.play()*/ ); 
            
-            if (verifadorZanahoria == true && contene == 8) {
+            if (verificadorSandia == true && contene == 8) {
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++  
-              verifadorZanahoria = false;
+              verificadorSandia = false;
+				if (contadorLonchera >= 4)
+                  {
+                    window.location.href = "Puntaje.html?" + puntajeJuego;
+                    hazArmado.play();
+                  }
+				
+				
             }
-            if (verifadorTomate == true && contene == 9) {
+            if (verificadorManzana == true && contene == 9) {
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++
-              verifadorTomate = false;
+              verificadorManzana = false;
+				
+				if (contadorLonchera >= 4)
+                  {
+                    window.location.href = "Puntaje.html?" + puntajeJuego;
+                    hazArmado.play();
+                  }
+				
             } 
-            if (verifadorNranja == true && contene == 10) {
+            if (verificadorGuineo == true && contene == 10) {
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++
-              verifadorNranja = false;             
+              verificadorGuineo = false;  
+				
+				if (contadorLonchera >= 4)
+                  {
+                    window.location.href = "Puntaje.html?" + puntajeJuego;
+                    hazArmado.play();
+                  }
+				
             }                
             bienHecho.play();
+			  
             return
         }
         
-          }else{
+          }
+			else{
             let contenedor=element.categoria;
             console.log(contenedor)
             $("#"+contenedor).append( ui.draggable )
@@ -359,22 +415,22 @@ $( ".cont1" ).append( ui.draggable  );
                       var res3 = textEnerg.slice(0, -1);
                      let valores3=res3.split(" ");
 
-             var descarga = JSON.stringify({ puntaje : puntajeJuego , 
-                alimentos : [{constuctor :[ valores2 ], energeticos: [ valores3 ], reguladores :[ valores ] }] });
-            $('#descarga').show("slow").click(function(e) {         
-              let dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(descarga);        
-              let exportFileDefaultName = '../objetos.json';        
-              let linkElement = document.createElement('a');
-              linkElement.setAttribute('href', dataUri);
-              linkElement.setAttribute('download', exportFileDefaultName);
-            linkElement.click(); 
-            })               
+//             var descarga = JSON.stringify({ puntaje : puntajeJuego , 
+//                alimentos : [{constuctor :[ valores2 ], energeticos: [ valores3 ], reguladores :[ valores ] }] });
+//            $('#descarga').show("slow").click(function(e) {         
+//              let dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(descarga);        
+//              let exportFileDefaultName = '../objetos.json';        
+//              let linkElement = document.createElement('a');
+//              linkElement.setAttribute('href', dataUri);
+//              linkElement.setAttribute('download', exportFileDefaultName);
+//            linkElement.click(); 
+//            })               
           }
           /* termina el codigo del json  */ 
           //window.location.href = "ganador.html?score=" + puntajeJuego;
 
-              window.location.href = "Puntaje.html?" + 100;
-              //tajeJuego.toString();
+
+              window.location.href = "Puntaje.html?" + puntajeJuego;
               hazArmado.play();
               $(".puntaje2").text(puntajeJuego.toString())         
           }  
@@ -394,14 +450,12 @@ $("#contructores").droppable({
           let contene=element.id;
           $( "#contructores" ).append( ui.draggable  );
           $('#descarga').hide( "slow");
-            if(element.categoria=="dañinos"){
-                alert("alimento dañino se debe restar el puntaje");
-                }
-          if (verifadorLeche == false  && contene == 4) {
-            puntajeJuego -= element.puntos;
+            
+          if (verificadorLeche == false  && contene == 4) {
+            puntajeJuego -= element.puntos; 
             $(".puntaje").text(puntajeJuego.toString())
             contadorLonchera--
-            verifadorLeche = true;        
+            verificadorLeche = true;        
           }  
           if (verifadorYogurt == false  && contene == 5) {
             puntajeJuego -= element.puntos;
@@ -422,17 +476,17 @@ $("#energeticos").droppable({
           let contene=element.id;
           $( "#energeticos" ).append( ui.draggable  );   
           $('#descarga').hide( "slow");    
-          if (verifadorPlatano == false  && contene == 6) {
+          if (verificadorTostada == false  && contene == 6) {
             puntajeJuego -= element.puntos;
             $(".puntaje").text(puntajeJuego.toString())
             contadorLonchera--
-            verifadorPlatano = true;        
+            verificadorTostada = true;        
           }  
-          if (verifadorPan == false  && contene == 7) {
+          if (verificadorCake == false  && contene == 7) {
             puntajeJuego -= element.puntos;
             $(".puntaje").text(puntajeJuego.toString())
             contadorLonchera--
-            verifadorPan = true;            
+            verificadorCake = true;            
           }   
         }});     
       return
@@ -447,23 +501,23 @@ $("#reguladores").droppable({
         let contene=element.id;
         $( "#reguladores" ).append( ui.draggable  );
         $('#descarga').hide( "slow");
-        if (verifadorZanahoria == false  && contene == 8) {
+        if (verificadorSandia == false  && contene == 8) {
           puntajeJuego -= element.puntos;
           $(".puntaje").text(puntajeJuego.toString())
           contadorLonchera--
-          verifadorZanahoria = true;        
+          verificadorSandia = true;        
         }  
-        if (verifadorTomate == false  && contene == 9) {
+        if (verificadorManzana == false  && contene == 9) {
           puntajeJuego -= element.puntos;
           $(".puntaje").text(puntajeJuego.toString())
           contadorLonchera--
-          verifadorTomate = true;            
+          verificadorManzana = true;            
         }  
-        if (verifadorNranja == false  && contene == 10 ) {
+        if (verificadorGuineo == false  && contene == 10 ) {
           puntajeJuego -= element.puntos;
           $(".puntaje").text(puntajeJuego.toString())
           contadorLonchera--
-          verifadorNranja = true;  
+          verificadorGuineo = true;  
         }  
       }});
     

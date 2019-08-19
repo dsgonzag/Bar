@@ -10,7 +10,7 @@
      "name" : "hotdog", 
      "id" : "2", 
      "puntos" : "-10", 
-     "sonido":"sonidoPizza", 
+     "sonido":"sonidoHotDog", 
      "categoria":"dañinos", 
      "rutaImg":"imagenes/hotdog.png"
  },
@@ -35,17 +35,17 @@
      "name" : "Yogurt", "id" : "5", "puntos" : "20", "sonido":"sonidoYogurt", "categoria":"contructores", "rutaImg":"imagenes/yogurt.png"
  },
  {
-     "name" : "tostada", "id" : "6", "puntos" : "20", "sonido":"sonidoPlatano", "categoria":"energeticos", "rutaImg":"imagenes/tostada.png"
+     "name" : "Tostada", "id" : "6", "puntos" : "20", "sonido":"sonidoTostada", "categoria":"energeticos", "rutaImg":"imagenes/tostada.png"
  },
  {
-     "name" : "cake", "id" : "7", "puntos" : "20", "sonido":"sonidoPan", "categoria":"energeticos", "rutaImg":"imagenes/cake.png"
+     "name" : "Cake", "id" : "7", "puntos" : "20", "sonido":"sonidoCake", "categoria":"energeticos", "rutaImg":"imagenes/cake.png"
  },
  {
-     "name" : "sandia", "id" : "8", "puntos" : "30", "sonido":"sonidoZanahoria", "categoria":"reguladores", "rutaImg":"imagenes/sandia.png"
+     "name" : "Sandia", "id" : "8", "puntos" : "30", "sonido":"sonidoSandia", "categoria":"reguladores", "rutaImg":"imagenes/sandia.png"
  },
  {
-     "name" : "manzana", "id" : "9", "puntos" : "30", "sonido":"sonidoTomate", "categoria":"reguladores", "rutaImg":"imagenes/manzana.png"
+     "name" : "Manzana", "id" : "9", "puntos" : "30", "sonido":"sonidoManzana", "categoria":"reguladores", "rutaImg":"imagenes/manzana.png"
  },
  {
-     "name" : "guineo", "id" : "10", "puntos" : "30", "sonido":"sonidoNaranaja", "categoria":"reguladores", "rutaImg":"imagenes/guineo.png"
+     "name" : "Guineo", "id" : "10", "puntos" : "30", "sonido":"sonidoGuineo", "categoria":"reguladores", "rutaImg":"imagenes/guineo.png"
  }]
