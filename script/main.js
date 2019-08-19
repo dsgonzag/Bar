@@ -57,7 +57,7 @@ console.log(data)
 
       $("#contructores").append(tagImagenes[i])
     }
-    console.log("imganes")
+    console.log("imagenes")
     console.log(tagImagenes[i])
    
   }
@@ -65,6 +65,9 @@ console.log(data)
 var puntajeJuego = 0 ; 
 var contadorLonchera=0
 var audioElement = document.createElement('audio');
+    
+     var au = $('<audio id="audi" src="audio/intro.mp3" autoplay type="audio/mpeg" loop="true" balance=-1></audio>');
+    $("body").append(au);
 
 var audiohamburguesa = document.createElement('audio');
 audiohamburguesa.setAttribute('src', 'audio/hamburguesa.mp3');        
@@ -96,17 +99,21 @@ audioManzana.setAttribute('src', 'audio/manzana.mp3');
 var audioGuineo = document.createElement('audio');
 audioGuineo.setAttribute('src', 'audio/guineo.mp3');
 
-var bienHecho = document.createElement('audio');
-bienHecho.setAttribute('src', 'audio/bienhecho.mp3');
+var acierto = document.createElement('audio');
+acierto.setAttribute('src', 'audio/acierto.mp3');
 
-var malo = document.createElement('audio');
-malo.setAttribute('src', 'audio/malo.mp3');
 
-var hazArmado = document.createElement('audio');
-hazArmado.setAttribute('src', 'audio/hazarmado.mp3');
+
+    var oh_no= document.createElement('audio');
+oh_no.setAttribute('src', 'audio/oh_no.mp3');
+
+var muybien = document.createElement('audio');
+muybien.setAttribute('src', 'audio/muybien.mp3');
 
 var ganaste = document.createElement('audio');
-ganaste.setAttribute('src', 'audio/ganaste.mp3');
+ganaste.setAttribute('src', 'audio/ganador.mp3');
+    
+ 
 /*
 $("a.external").click(function() { url = $(this).attr("href"); window.open(url, '_blank'); return false; });*/
 $(".alimentos").draggable({ 
@@ -144,11 +151,11 @@ $(".alimentos").draggable({
         if(element.sonido == "sonidoYogurt") {
           $('#contructores').find( this).each(function() {
         
-            if (verifadorYogurt == false) {
+            if (verificadorYogurt == false) {
               puntajeJuego -= element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera--
-              verifadorYogurt = true;
+              verificadorYogurt = true;
             }              
           });
           audioYogurt.play();
@@ -244,7 +251,7 @@ $(".lonchCont").droppable({
 //          }
 if ($ (ui.draggable).hasClass("dañinos")) {
 $( ".cont1" ).append( ui.draggable  );
-    alert("alimento dañino aqui resta");
+    oh_no.play();
    
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
@@ -252,7 +259,7 @@ $( ".cont1" ).append( ui.draggable  );
 	if (contadorLonchera >= 4)
                   {
                     window.location.href = "Puntaje.html?" + puntajeJuego;
-                    hazArmado.play();
+                    muybien.play();
                   }
 	
             return
@@ -270,20 +277,20 @@ $( ".cont1" ).append( ui.draggable  );
 				if (contadorLonchera >= 4)
                   {
                     window.location.href = "Puntaje.html?" + puntajeJuego;
-                    hazArmado.play();
+                    muybien.play();
                   }
 					
 				
             }
-            if (verifadorYogurt == true && contene == 5) {
+            if (verificadorYogurt == true && contene == 5) {
               puntajeJuego += element.puntos;
               $(".puntaje").text(puntajeJuego.toString())
               contadorLonchera++
-              verifadorYogurt = false;
+              verificadorYogurt = false;
 				if (contadorLonchera >= 4)
                   {
                     window.location.href = "Puntaje.html?" + puntajeJuego;
-                    hazArmado.play();
+                    muybien.play();
                   }
 					
 				
@@ -300,7 +307,7 @@ $( ".cont1" ).append( ui.draggable  );
 				if (contadorLonchera >= 4)
                   {
                     window.location.href = "Puntaje.html?" + puntajeJuego;
-                    hazArmado.play();
+                    muybien.play();
                   }
 						
 				
@@ -314,7 +321,7 @@ $( ".cont1" ).append( ui.draggable  );
 				if (contadorLonchera >= 4)
                   {
                     window.location.href = "Puntaje.html?" + puntajeJuego;
-                    hazArmado.play();
+                    muybien.play();
                   }		
 				
             }
@@ -332,7 +339,7 @@ $( ".cont1" ).append( ui.draggable  );
 				if (contadorLonchera >= 4)
                   {
                     window.location.href = "Puntaje.html?" + puntajeJuego;
-                    hazArmado.play();
+                    muybien.play();
                   }
 				
 				
@@ -346,7 +353,7 @@ $( ".cont1" ).append( ui.draggable  );
 				if (contadorLonchera >= 4)
                   {
                     window.location.href = "Puntaje.html?" + puntajeJuego;
-                    hazArmado.play();
+                    muybien.play();
                   }
 				
             } 
@@ -359,11 +366,11 @@ $( ".cont1" ).append( ui.draggable  );
 				if (contadorLonchera >= 4)
                   {
                     window.location.href = "Puntaje.html?" + puntajeJuego;
-                    hazArmado.play();
+                    muybien.play();
                   }
 				
             }                
-            bienHecho.play();
+            acierto.play();
 			  
             return
         }
@@ -415,20 +422,9 @@ $( ".cont1" ).append( ui.draggable  );
                       var res3 = textEnerg.slice(0, -1);
                      let valores3=res3.split(" ");
 
-//             var descarga = JSON.stringify({ puntaje : puntajeJuego , 
-//                alimentos : [{constuctor :[ valores2 ], energeticos: [ valores3 ], reguladores :[ valores ] }] });
-//            $('#descarga').show("slow").click(function(e) {         
-//              let dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(descarga);        
-//              let exportFileDefaultName = '../objetos.json';        
-//              let linkElement = document.createElement('a');
-//              linkElement.setAttribute('href', dataUri);
-//              linkElement.setAttribute('download', exportFileDefaultName);
-//            linkElement.click(); 
-//            })               
-          }
-          /* termina el codigo del json  */ 
-          //window.location.href = "ganador.html?score=" + puntajeJuego;
 
+          }
+          
 
               window.location.href = "Puntaje.html?" + puntajeJuego;
               hazArmado.play();
@@ -457,11 +453,11 @@ $("#contructores").droppable({
             contadorLonchera--
             verificadorLeche = true;        
           }  
-          if (verifadorYogurt == false  && contene == 5) {
+          if (verificadorYogurt == false  && contene == 5) {
             puntajeJuego -= element.puntos;
             $(".puntaje").text(puntajeJuego.toString())
             contadorLonchera--
-            verifadorYogurt = true;            
+            verificadorYogurt = true;            
           }   
         }});     
       return

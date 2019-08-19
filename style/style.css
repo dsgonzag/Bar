@@ -1,3 +1,18 @@
+#imgFondo{
+   
+    background-image: url(../img/fondo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: beige ;
+}
+#logo{
+    width: 120px;
+    height: 100px;
+ 
+
+    }
 body{
     margin:0;
     padding: 0; 
@@ -13,7 +28,7 @@ body{
                              /*--------------------------productos---------------------*/
 .grup {
   margin: 1%;
-  height:  280px;
+  height:  350px;
 }
 .grup p{
 text-align: center;
@@ -76,39 +91,47 @@ background: linear-gradient(to top, #ffffff, #fffc00); /* W3C, IE 10+/ Edge, Fir
 
   }
   .posision {
-    margin-top: 2%;
-    height:  280px;
+   
+    height:  200px;
   }
                                    /*------------------------Lonchera-------------*/
   .lonchera{
     
     background-image: url('../imagenes/lonchera.png');
-    width:40%;
-    height:  38vh;
+    width:50%;
+    height:  100%;
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: top;
-    position:relative;
-    left:28%;
+    position:absolute;
+    display: block;
+    
 }
 .cc2{
   /*border: 6px solid rgb(156, 58, 58);*/
-  height : 240px;
+  height : 60px;
+   margin-top : 2% ;  
+  width:100%;
+   
+    
 }
 .cc2 img{
-margin-left:15%;
+
 margin-top :40% ;
-height: 100px;
-height: 70px;
+height: 200px;
+margin-left: 20%;
 }
 .cc{
 
-  height : 100px;
-  width:100%;
-  margin-top :50% ;
+  height : 80px;
+  width:120%;
+  margin-top :40% ;
+    margin-left: 20%;
 }
 .cc3{
-  margin-top :4% ;
+height : 100px;
+  width:100%;
+  margin-top :35% ;
+    margin-left: 20%;
   
 }
 
@@ -118,7 +141,9 @@ height: 70px;
   background-position: center;
 }
 .lonchCont{
-margin-left: 5px;
+margin-left: 2px;
+    
+     position: relative;
 }
 .cont1{  }
 .cont2{  }
@@ -130,19 +155,15 @@ button{
   font-family: 'courier';
   
   font-weight: bold;
-  margin-top: 8%;
-    margin-bottom: 4%;
+  margin-top: 18%;
+    
 /*  border-radius: 20px;*/
   position: relative;
-  left:40%;
+ margin-left: 25px;
   border: 3px solid 37,176 , 144;
-
+font-family: cursive; 
+	font-weight: bolder
 }
 
-.alert {
-  padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
-  margin-bottom: 15px;
-}
+
 
